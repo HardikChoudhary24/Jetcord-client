@@ -7,8 +7,6 @@ const isClient = typeof window !== "undefined";
 export const gqlClient = new GraphQLClient("http://localhost:8000/graphql", {
   headers: () => {
     const cookies = new Cookies();
-    console.log(cookies.get("auth_token"));
-
     return {
       authorization: isClient
         ? `Bearer ${cookies.get("auth_token")}`

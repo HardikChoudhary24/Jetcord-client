@@ -31,7 +31,7 @@ const FeedCard = () => {
   return (
     <div className="flex py-2 px-[10%] w-full">
       <div className=" flex flex-col justify-start items-center px-6">
-        <div className="rounded-full bg-cyan-400 w-[25px] h-[25px]">
+        <div className="rounded-full bg-cyan-400 w-[40px] h-[40px]">
           {/* user image */}
         </div>
         <div className="w-[2px] rounded-lg flex-grow bg-[#292a2b] mt-1"></div>
