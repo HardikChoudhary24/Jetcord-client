@@ -17,12 +17,12 @@ export const AutoSizeTextArea = styled(BaseTextareaAutosize)(
   ({ theme }) => `
     box-sizing: border-box;
     width: 100%;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 200;
-    font-size:0.95rem;
+    font-weight: 300;
+    font-size:1rem;
     margin-bottom:5px;
     color: white;
-    background: #1f2020;
+    font-size:0.95rem;
+    background: #141515;
     border: none;
 
     resize:none;

@@ -12,27 +12,27 @@ interface NavItems {
 const navItems: NavItems[] = [
   {
     name: "Home",
-    icon: <GoHomeFill size={32} style={{ color: "#2d2e2e" }} />,
+    icon: <GoHomeFill size={32} style={{ color: "#545656" }} />,
     activeIcon: <GoHomeFill size={32} style={{ color: "white" }} />,
   },
   {
     name: "Search",
-    icon: <FiSearch size={30} style={{ color: "#2d2e2e" }} />,
+    icon: <FiSearch size={30} style={{ color: "#545656" }} />,
     activeIcon: <FiSearch size={32} style={{ color: "white" }} />,
   },
   {
     name: "Edit",
-    icon: <FiEdit size={30} style={{ color: "#2d2e2e" }} />,
+    icon: <FiEdit size={30} style={{ color: "#545656" }} />,
     activeIcon: <FiEdit size={32} style={{ color: "white" }} />,
   },
   {
     name: "Likes",
-    icon: <FaRegHeart size={29} style={{ color: "#2d2e2e" }} />,
+    icon: <FaRegHeart size={29} style={{ color: "#545656" }} />,
     activeIcon: <FaRegHeart size={32} style={{ color: "white" }} />,
   },
   {
     name: "User",
-    icon: <FaRegUser size={28} style={{ color: "#2d2e2e" }} />,
+    icon: <FaRegUser size={28} style={{ color: "#545656" }} />,
     activeIcon: <FaRegUser size={32} style={{ color: "white" }} />,
   },
 ];
@@ -44,7 +44,7 @@ const Navbar = () => {
     //push to new route
   };
   return (
-    <div className="grid grid-cols-12 py-9">
+    <div className="grid grid-cols-12 pt-9 pb-3 sticky top-0 z-30 backdrop-blur-3xl backdrop-contrast-150 backdrop-brightness-50">
       <div className="col-span-3 flex justify-end pr-2 items-center">
         <FaRegPaperPlane size={30} />
       </div>
@@ -52,7 +52,7 @@ const Navbar = () => {
         {navItems.map((item, index) => {
           return (
             <span
-              className="col-span-1 flex justify-center items-center cursor-pointer hover:bg-[#1d1e1f] bg-opacity-5 py-3 px-3 rounded-md transition-all"
+              className="col-span-1 flex justify-center items-center cursor-pointer hover:bg-[#5a5b5b39] bg-opacity-5 py-3 px-3 rounded-md transition-all"
               key={index}
               onClick={() => redirectNavLink(item.name)}
             >

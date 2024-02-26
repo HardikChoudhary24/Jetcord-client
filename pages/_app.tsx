@@ -9,14 +9,14 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useRouter } from "next/router";
 import Signup from "./signup";
 
-const inter = Inter({ subsets: ["latin"] });
+export const inter = Inter({ subsets: ["latin"] });
 const quicksand = Quicksand({ subsets: ["latin"] });
 const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   return (
-    <div className={quicksand.className}>
+    <div className={`${quicksand.className}`}>
       <QueryClientProvider client={queryClient}>
         <GoogleOAuthProvider clientId="170631133733-5d2nltjpeebracsjn01irrsmgmqejk45.apps.googleusercontent.com">
           {!router.pathname.includes("signup") && <Navbar />}
