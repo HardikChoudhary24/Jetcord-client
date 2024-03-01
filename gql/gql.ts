@@ -15,6 +15,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
 const documents = {
     "\n  #graphql\n  mutation Example($payload: CreatePostData!) {\n    createPost(payload: $payload) {\n      id\n    }\n  }\n": types.ExampleDocument,
     "\n  #graphql\n  query getAllPosts {\n    getAllPosts {\n      author {\n        firstName\n        profileImageURL\n      }\n      content\n      id\n      mediaURL\n    }\n  }\n": types.GetAllPostsDocument,
+    "\n  #graphql\n  query Query($imageType: String!) {\n    getSignedURL(imageType: $imageType)\n  }\n": types.QueryDocument,
     "\n  #graphql\n  query verifyUserGoogleTokenQuery($token: String!) {\n    verifyGoogleToken(token: $token)\n  }\n": types.VerifyUserGoogleTokenQueryDocument,
     "\n  #graphql\n  query getCurrentUser {\n    getCurrentUser {\n      id\n      firstName\n      email\n      profileImageURL\n    }\n  }\n": types.GetCurrentUserDocument,
 };
@@ -41,6 +42,10 @@ export function graphql(source: "\n  #graphql\n  mutation Example($payload: Crea
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  #graphql\n  query getAllPosts {\n    getAllPosts {\n      author {\n        firstName\n        profileImageURL\n      }\n      content\n      id\n      mediaURL\n    }\n  }\n"): (typeof documents)["\n  #graphql\n  query getAllPosts {\n    getAllPosts {\n      author {\n        firstName\n        profileImageURL\n      }\n      content\n      id\n      mediaURL\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  #graphql\n  query Query($imageType: String!) {\n    getSignedURL(imageType: $imageType)\n  }\n"): (typeof documents)["\n  #graphql\n  query Query($imageType: String!) {\n    getSignedURL(imageType: $imageType)\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

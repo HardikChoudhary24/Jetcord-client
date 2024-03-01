@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
+import React, { useState } from "react";
 import { IoChatbubbleOutline, IoPaperPlaneOutline } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineRetweet } from "react-icons/ai";
@@ -8,6 +8,7 @@ import { Post } from "@/gql/graphql";
 import Image from "next/image";
 import { Ubuntu } from "next/font/google";
 import { inter } from "../pages/_app";
+import { FiShare } from "react-icons/fi";
 interface FeedOptions {
   name: String;
   icon: React.ReactNode;
@@ -16,18 +17,22 @@ const feedOptions = [
   {
     name: "like",
     icon: <FaRegHeart size={22} />,
+    hoverIcon: <FaRegHeart size={22} color="#e33458" />,
   },
   {
     name: "chat",
     icon: <IoChatbubbleOutline size={22} />,
+    hoverIcon: <IoChatbubbleOutline size={22} color="#15e66f" />,
   },
   {
     name: "rePost",
     icon: <AiOutlineRetweet size={22} />,
+    hoverIcon: <AiOutlineRetweet size={22} color="#5d89f0" />,
   },
   {
     name: "share",
-    icon: <IoPaperPlaneOutline size={22} />,
+    icon: <FiShare size={22} />,
+    hoverIcon: <FiShare size={22} color="#5d89f0" />,
   },
 ];
 
@@ -39,7 +44,7 @@ interface FeedCardProps {
   data: Post;
 }
 const FeedCard: React.FC<FeedCardProps> = ({ data }) => {
-  console.log(data);
+  const [feedOptionHover, setFeedOptionHover] = useState("");
   return (
     <div className="flex py-2 px-[10%] w-full">
       <div className=" flex flex-col justify-start items-center px-6">
@@ -65,7 +70,7 @@ const FeedCard: React.FC<FeedCardProps> = ({ data }) => {
           </span>
           <div className="flex space-x-4">
             <span className="font-extralight">1 d</span>
-            <div className="flex items-center cursor-pointer rounded-full p-2 hover:bg-[#1d1e1f]">
+            <div className="flex items-center cursor-pointer rounded-full p-2 hover:bg-[hsl(180,1%,77%)]">
               <div className="rounded-full w-[5px] h-[5px] bg-white mx-[1px]"></div>
               <div className="rounded-full w-[5px] h-[5px] bg-white mx-[1px]"></div>
               <div className="rounded-full w-[5px] h-[5px] bg-white mx-[1px]"></div>
@@ -80,13 +85,8 @@ const FeedCard: React.FC<FeedCardProps> = ({ data }) => {
         </div>
         {/* media-content */}
         {data?.mediaURL && (
-          <div className="h-[25rem] my-4 rounded-md overflow-hidden ml-2 relative">
-            <Image
-              src={data?.mediaURL}
-              layout="fill"
-              objectFit="cover"
-              alt=""
-            />
+          <div className="w-fit border border-[#292a2b] border-[1.5px] my-4 rounded-md overflow-hidden ml-2 relative ">
+            <img src={data?.mediaURL} alt="" />
           </div>
         )}
         {/* feed options */}
@@ -95,9 +95,13 @@ const FeedCard: React.FC<FeedCardProps> = ({ data }) => {
             return (
               <div
                 key={option.name}
-                className="flex justify-center items-center cursor-pointer rounded-full p-2 hover:bg-[#1d1e1f]"
+                className={`flex justify-center items-center cursor-pointer rounded-full p-2 hover:bg-[#1d1e1f]`}
+                onMouseOver={() => setFeedOptionHover(option.name)}
+                onMouseOut={() => setFeedOptionHover("")}
               >
-                {option.icon}
+                {feedOptionHover === option.name
+                  ? option.hoverIcon
+                  : option.icon}
               </div>
             );
           })}

@@ -29,3 +29,4 @@ export const useGetAllPosts = () => {
   });
   return { ...query, allPosts: query.data?.getAllPosts };
 };
+
