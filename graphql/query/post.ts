@@ -9,6 +9,7 @@ export const getAllPosts = graphql(`
       author {
         firstName
         profileImageURL
+        userName
       }
       content
       id

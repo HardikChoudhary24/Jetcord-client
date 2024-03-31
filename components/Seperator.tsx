@@ -1,8 +1,8 @@
 import React from "react";
 
-const Seperator = () => {
+const Seperator = ({px}:{px:string}) => {
   return (
-    <div className="w-full px-[10%] my-2">
+    <div className={`w-full px-[${px}] my-2`}>
       <hr className="ml-[30px] border-[#292a2b] border-1" />
     </div>
   );

@@ -29,7 +29,10 @@ const ComposePost:React.FC<ComposePostProps> = ({user}) => {
           <div className="rounded-full flex justify-center items-center overflow-hidden w-[40px] h-[40px]">
             {/* user image */}
             <Image
-              src={user?.profileImageURL}
+              src={
+                user?.profileImageURL ||
+                "https://www.shutterstock.com/image-vector/user-icon-trendy-flat-style-260nw-418179865.jpg"
+              }
               width={40}
               alt=""
               height={40}
@@ -51,7 +54,7 @@ const ComposePost:React.FC<ComposePostProps> = ({user}) => {
           </button>
         </div>
       </div>
-      {composeState && <ComposeModal closeCompose={closeCompose} user={user}/>}
+      {composeState && <ComposeModal closeCompose={closeCompose} user={user} />}
     </>
   );
 };

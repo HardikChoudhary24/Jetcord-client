@@ -21,7 +21,7 @@ export const AutoSizeTextArea = styled(BaseTextareaAutosize)(
     font-size:1rem;
     margin-bottom:5px;
     color: white;
-    font-size:0.95rem;
+    font-size:1.12rem;
     background: #141515;
     border: none;
 

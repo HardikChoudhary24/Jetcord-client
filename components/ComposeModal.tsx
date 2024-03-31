@@ -130,7 +130,7 @@ const ComposeModal: React.FC<ComposeModalProps> = ({ closeCompose, user }) => {
               <div className="rounded-full overflow-hidden w-[40px] h-[40px] flex justify-center items-start">
                 {/* user image */}
                 <Image
-                  src={user?.profileImageURL}
+                  src={user?.profileImageURL || "https://www.shutterstock.com/image-vector/user-icon-trendy-flat-style-260nw-418179865.jpg"}
                   width={40}
                   alt=""
                   height={40}
@@ -139,7 +139,7 @@ const ComposeModal: React.FC<ComposeModalProps> = ({ closeCompose, user }) => {
             </div>
             <div className="flex flex-col justify-start items-start ml-3 w-full">
               <p className={`font-[500] text-[1rem] ${roboto.className}`}>
-                {user?.firstName}
+                {user?.userName}
               </p>
               <div className={`w-full mt-1 ${lato.className}`}>
                 <AutoSizeTextArea
@@ -179,7 +179,7 @@ const ComposeModal: React.FC<ComposeModalProps> = ({ closeCompose, user }) => {
                   className="cursor-pointer"
                   onClick={handleSelectImageUpload}
                 >
-                  <IoIosImages />
+                  <IoIosImages size={20}/>
                 </div>
                 <div className="cursor-pointer" onClick={handleGIFUpload}>
                   <HiOutlineGif size={20} />

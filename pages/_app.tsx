@@ -8,6 +8,8 @@ import type { AppProps } from "next/app";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useRouter } from "next/router";
 import Signup from "./signup";
+import { store } from "@/store/store";
+import { Provider } from 'react-redux';
 
 export const inter = Inter({ subsets: ["latin"] });
 const quicksand = Quicksand({ subsets: ["latin"] });
@@ -19,9 +21,11 @@ export default function App({ Component, pageProps }: AppProps) {
     <div className={`${quicksand.className}`}>
       <QueryClientProvider client={queryClient}>
         <GoogleOAuthProvider clientId="170631133733-5d2nltjpeebracsjn01irrsmgmqejk45.apps.googleusercontent.com">
-          {!router.pathname.includes("signup") && <Navbar />}
-          <Component {...pageProps} />
-          <Toaster />
+          <Provider store={store}>
+            {!router.pathname.includes("signup") && <Navbar />}
+            <Component {...pageProps} />
+            <Toaster />
+          </Provider>
         </GoogleOAuthProvider>
         <ReactQueryDevtools />
       </QueryClientProvider>

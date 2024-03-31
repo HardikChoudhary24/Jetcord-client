@@ -7,6 +7,7 @@ const nextConfig = {
       "images.pexels.com",
       "jetcord-dev.s3.ap-south-1.amazonaws.com",
       "giphy.com",
+      "www.shutterstock.com",
     ],
   },
 };
